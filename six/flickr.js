@@ -27,11 +27,11 @@ require([
 
     let image = (url) => $('<img/>', { src: url });
 
-    let mediaUrl = _.compose(_.prop('m'), _.prop('media')),
-      srcs = _.compose(_.map(mediaUrl), _.prop('items')),
-      imgs = _.compose(_.map(image), srcs),
-      renderImages = _.compose(impure.setHTML('body'), imgs),
-      app = _.compose(impure.getJSON(renderImages), url);
+    let mediaUrl = _.compose(_.prop('m'), _.prop('media')),   // retrieves the url of an image
+      mediaToImg = _.compose(image, mediaUrl),                // url -> <img src="picture">
+      imgs = _.compose(_.map(mediaToImg), _.prop('items')),   // retrieve items[] from JSON response
+      renderImages = _.compose(impure.setHTML('body'), imgs), // set <img>s in body
+      app = _.compose(impure.getJSON(renderImages), url);     // make API call
 
     app('cats');
   }
