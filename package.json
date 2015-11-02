@@ -1,3 +1,7 @@
-"dependencies": {
-  "ramda": "^0.13.0"
+{
+  "dependencies": {
+    "folktale": "^1.0.0-SNAPSHOT",
+    "moment": "^2.10.6",
+    "ramda": "^0.13.0"
+  }
 }

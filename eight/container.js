@@ -11,7 +11,6 @@ Container.prototype.map = function(fx) {
   return Container.of(fx(this.__value));
 }
 
-
 module.exports = {
   container: Container
 };
